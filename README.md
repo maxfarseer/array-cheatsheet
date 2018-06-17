@@ -290,3 +290,4 @@
 * https://github.com/Microsoft/TypeScript/blob/master/lib/lib.es6.d.ts
 * MDN - [Mozilla Development Network](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype)
 * Специализации языка ECMAScript (JavaScript)
+* Оригинальный текст - https://gist.github.com/rauschma/f7b96b8b7274f2e2d8dab899803346c3
