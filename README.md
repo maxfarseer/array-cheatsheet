@@ -73,10 +73,8 @@
     Результатом выполнения данного метода будет индекс первго элемента в массива, который удовлетворяет условию в `callback`. Если условие не выполнено, вернется `-1`
 
   ```js
-  > [1, -2, 3].findIndex(x => x < 0)
-  1
-  > [1, 2, 3].findIndex(x => x < 0)
-  -1
+  > [1, -2, 3].findIndex(x => x < 0) // 1
+  > [1, 2, 3].findIndex(x => x < 0)  //-1
   ```
 
 * `forEach(callback: (value: T, index: number, array: Array<T>) => void, thisArg?: any): void` 🔒 <sup>ES5</sup>
@@ -91,26 +89,23 @@
 
 * `includes(searchElement: T, fromIndex=0): boolean` 🔒 <sup>ES2016</sup>
 
-  Returns `true` if `searchElement` SameValueZero-equal to an element and `false`, otherwise. SameValueZero-equal means: strictly equal, but `NaN` is also equal to itself.
+    Метод вернет `true` или `false`, в зависимости от того содержится ли искомый элемент в массиве или нет. Элементы проверяется через строгое равенство `===`. NaN === NaN
 
   ```js
   > [0, 1, 2].includes(1)
-  true
+  // true
   > [0, 1, 2].includes(5)
-  false
+  // false
   ```
 
 * `indexOf(searchElement: T, fromIndex=0): number` 🔒 <sup>ES5</sup>
 
-  Returns the index of the first element that is strictly equal to `searchElement`. Returns `-1` if there is no such element. Starts searching at index `fromIndex`, visiting subsequent indices next.
+  Вернет индекс первого подходящего элемента, равного (строгое равенство) искомому элементы. В противном случае вернет -1. Если указан параметр `fromIndex`, то поиск начинается с него, если не указан, то от начал амассива. `arr.indexOf(searchElement, fromIndex)`
 
   ```js
-  > ['a', 'b', 'a'].indexOf('a')
-  0
-  > ['a', 'b', 'a'].indexOf('a', 1)
-  2
-  > ['a', 'b', 'a'].indexOf('c')
-  -1
+  > ['a', 'b', 'a'].indexOf('a')    // 0
+  > ['a', 'b', 'a'].indexOf('a', 1) // 2
+  > ['a', 'b', 'a'].indexOf('c')    // -1
   ```
 
 * `join(separator = ','): string` 🔒 <sup>ES1</sup>
