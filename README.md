@@ -1,6 +1,6 @@
 # `Array<T>`
 
-Некоторые полезные методы для работы с массивами в JS.
+Шпаргалка по методам для работы с массивами в JavaScript.
 
 Обозначения:
 
@@ -14,74 +14,65 @@
 
     Метод возвращает новый массив, который образуется от слияния исходного массива ( `this` ) и массивов, переданных в метод в качестве параметров. Параметры без массива обрабатываются так, как если бы они были массивами с 1 элементом.
 
-  ```repl
-  > ['a'].concat('b', ['c', 'd'])
-  [ 'a', 'b', 'c', 'd' ]
+  ```js
+  > ['a'].concat('b', ['c', 'd']) //[ 'a', 'b', 'c', 'd' ]
   ```
 
 * `copyWithin(target: number, start: number, end=this.length): this` ✏️ <sup>ES6</sup>
 
     Метод копирует элементs массива внутри него в позицию, начинающуюся по индексу target. Копия берётся по индексам, задаваемым вторым и третьим аргументами start и end. `arr.copyWithin(target, start, end)`
 
-  ```repl
-  > ['a', 'b', 'c', 'd'].copyWithin(0, 2, 4)
-  [ 'c', 'd', 'c', 'd' ]
+  ```js
+  > ['a', 'b', 'c', 'd'].copyWithin(0, 2, 4) // [ 'c', 'd', 'c', 'd' ]
   ```
 
 * `entries(): Iterable<[number, T]>` 🔒 <sup>ES6</sup>
 
   Метод возвращает итератор с парой [индекс, элемент], или [ключ, значение]
 
-  ```repl
-  > Array.from(['a', 'b'].entries())
-  [ [ 0, 'a' ], [ 1, 'b' ] ]
+  ```js
+  > Array.from(['a', 'b'].entries()) // [ [ 0, 'a' ], [ 1, 'b' ] ]
   ```
 
 * `every(callback: (value: T, index: number, array: Array<T>) => boolean, thisArg?: any): boolean` 🔒 <sup>ES5</sup>
 
     Метод обрабатывает все элементы массива. Возвращает `true` если коллбэк вернет `true` для каждого элемента. Останавливается как только какой-либо элемент вернет `false`.
 
-  ```repl
-  > [1, 2, 3].every(x => x > 0)
-  true
-  > [1, -2, 3].every(x => x > 0)
-  false
+  ```js
+  > [1, 2, 3].every(x => x > 0)   // true
+  > [1, -2, 3].every(x => x > 0)  // false
   ```
 
 * `fill(value: T, start=0, end=this.length): this` ✏️ <sup>ES6</sup>
 
     Данный Метод заполняет все элементы массива от начального до конечного значением, переданным в качестве параметра.
 
-  ```repl
-  > [0, 1, 2].fill('a')
-  [ 'a', 'a', 'a' ]
+  ```js
+  > [0, 1, 2].fill('a') // [ 'a', 'a', 'a' ]
   ```
 
 * `filter(callback: (value: T, index: number, array: Array<T>) => any, thisArg?: any): T[]` 🔒 <sup>ES5</sup>
 
     Возвращает массив, который состоит из тех элементов, для которых `callback` вернет `true`
 
-  ```repl
-  > [1, -2, 3].filter(x => x > 0)
-  [ 1, 3 ]
+  ```js
+  > [1, -2, 3].filter(x => x > 0) // [ 1, 3 ]
   ```
 
 * `find(predicate: (value: T, index: number, obj: T[]) => boolean, thisArg?: any): T | undefined` 🔒 <sup>ES6</sup>
 
     Возвращает первое найденное значение, которое удовлетворяет условию, переданному в `callback`, в противном же случае, метод вернет `undefined`
 
-  ```repl
-  > [1, -2, 3].find(x => x < 0)
-  -2
-  > [1, 2, 3].find(x => x < 0)
-  undefined
+  ```js
+  > [1, -2, 3].find(x => x < 0) // -2
+  > [1, 2, 3].find(x => x < 0)  // undefined
   ```
 
 * `findIndex(predicate: (value: T, index: number, obj: T[]) => boolean, thisArg?: any): number` 🔒 <sup>ES6</sup>
 
     Результатом выполнения данного метода будет индекс первго элемента в массива, который удовлетворяет условию в `callback`. Если условие не выполнено, вернется `-1`
 
-  ```repl
+  ```js
   > [1, -2, 3].findIndex(x => x < 0)
   1
   > [1, 2, 3].findIndex(x => x < 0)
@@ -90,7 +81,7 @@
 
 * `forEach(callback: (value: T, index: number, array: Array<T>) => void, thisArg?: any): void` 🔒 <sup>ES5</sup>
 
-  Calls `callback` for each element.
+    Метод вызовет `callback` для каждого элемента массива
 
   ```js
   ['a', 'b'].forEach((x, i) => console.log(x, i))
@@ -102,7 +93,7 @@
 
   Returns `true` if `searchElement` SameValueZero-equal to an element and `false`, otherwise. SameValueZero-equal means: strictly equal, but `NaN` is also equal to itself.
 
-  ```repl
+  ```js
   > [0, 1, 2].includes(1)
   true
   > [0, 1, 2].includes(5)
@@ -113,7 +104,7 @@
 
   Returns the index of the first element that is strictly equal to `searchElement`. Returns `-1` if there is no such element. Starts searching at index `fromIndex`, visiting subsequent indices next.
 
-  ```repl
+  ```js
   > ['a', 'b', 'a'].indexOf('a')
   0
   > ['a', 'b', 'a'].indexOf('a', 1)
@@ -126,7 +117,7 @@
 
   Creates a string by concatenating string representations of all elements, separating by `separator`.
 
-  ```repl
+  ```js
   > ['a', 'b', 'c'].join()
   'a,b,c'
   > ['a', 'b', 'c'].join('##')
@@ -137,7 +128,7 @@
 
   Returns an iterable over the keys of the array.
 
-  ```repl
+  ```js
   > [...['a', 'b'].keys()]
   [ 0, 1 ]
   ```
@@ -146,7 +137,7 @@
 
   Returns the index of the last element that is strictly equal to `searchElement`. Returns `-1` if there is no such element. Starts searching at index `fromIndex`, visiting preceding indices next.
 
-  ```repl
+  ```js
   > ['a', 'b', 'a'].lastIndexOf('a')
   2
   > ['a', 'b', 'a'].lastIndexOf('a', 1)
@@ -159,7 +150,7 @@
 
   Returns a new array, in which every element is the result of `callback` being applied to the corresponding element of `this`.
 
-  ```repl
+  ```js
   > [1, 2, 3].map(x => x * 2)
   [ 2, 4, 6 ]
   > ['a', 'b', 'c'].map((x, i) => i)
@@ -170,7 +161,7 @@
 
   Removes and returns the last element of the array. That is, it treats the end of the array as a stack.
 
-  ```repl
+  ```js
   > const arr = ['a', 'b', 'c'];
   > arr.pop()
   'c'
@@ -182,7 +173,7 @@
 
   Adds adds zero or more `items` to the end of the array. That is, it treats the end of the array as a stack. The return value is the length of `this` after the change.
 
-  ```repl
+  ```js
   > const arr = ['a', 'b'];
   > arr.push('c', 'd')
   4
@@ -194,7 +185,7 @@
 
   The `callback` computes the next state, given the current state and an `element` of the array. `.reduce()` feeds it the array elements, starting at index 0, going forward. If no `firstState` is provided, the array element at index 0 is used, instead. The last state is the result of `.reduce()`.
 
-  ```repl
+  ```js
   > [1, 2, 3].reduce((state, x) => state + String(x), '')
   '123'
   > [1, 2, 3].reduce((state, x) => state + x, 0)
@@ -205,7 +196,7 @@
 
   Works like `.reduce()`, but visits the array elements backward, starting with the last element.
 
-  ```repl
+  ```js
   > [1, 2, 3].reduceRight((state, x) => state + String(x), '')
   '321'
   ```
@@ -214,7 +205,7 @@
 
   Rearranges the elements of the array so that they are in reverse order and then returns `this`.
 
-  ```repl
+  ```js
   > const arr = ['a', 'b', 'c'];
   > arr.reverse()
   [ 'c', 'b', 'a' ]
@@ -226,7 +217,7 @@
 
   Removes and returns the first element of the array. The opposite of `.unshift()`.
 
-  ```repl
+  ```js
   > const arr = ['a', 'b', 'c'];
   > arr.shift()
   'a'
@@ -238,7 +229,7 @@
 
   Returns a new array, with the elements of `this` whose indices are between (incl.) `start` and (excl.) `end`.
 
-  ```repl
+  ```js
   > ['a', 'b', 'c', 'd'].slice(1, 3)
   [ 'b', 'c' ]
   > ['a', 'b'].slice() // shallow copy
@@ -249,7 +240,7 @@
 
   Returns `true` if `callback` returns `true` for at least one element. Stops as soon as it receives `true`. Math: ∃
 
-  ```repl
+  ```js
   > [1, 2, 3].some(x => x < 0)
   false
   > [1, -2, 3].some(x => x < 0)
@@ -264,7 +255,7 @@
     * Zero if `a === b`
     * Positive if `a > b`
 
-  ```repl
+  ```js
   > [3, 1, 2].sort((a, b) => a - b)
   [ 1, 2, 3 ]
   > ['b', 'a', 'c'].sort((a, b) => a < b ? -1 : a > b ? +1 : 0)
@@ -275,7 +266,7 @@
 
   At index `start`, it removes `deleteCount` elements and inserts the `items`. It returns the deleted elements.
 
-  ```repl
+  ```js
   > const arr = ['a', 'b', 'c', 'd'];
   > arr.splice(1, 2, 'x', 'y')
   [ 'b', 'c' ]
@@ -287,7 +278,7 @@
 
   Returns a string with string versions of all elements, separated by commas.
 
-  ```repl
+  ```js
   > [1, 2, 3].toString()
   '1,2,3'
   > ['a', 'b', 'c'].toString()
@@ -300,7 +291,7 @@
 
   Inserts the `items` at the beginning of this array and returns the length of `this` after the modification.
 
-  ```repl
+  ```js
   > const arr = ['c', 'd'];
   > arr.unshift('e', 'f')
   4
