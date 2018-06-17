@@ -41,8 +41,6 @@
 
     Метод обрабатывает все элементы массива. Возвращает `true` если коллбэк вернет `true` для каждого элемента. Останавливается как только какой-либо элемент вернет `false`.
 
-  Returns `true` if `callback` returns `true` for every element. Stops as soon as it receives `false`. Math: ∀
-
   ```repl
   > [1, 2, 3].every(x => x > 0)
   true
@@ -52,7 +50,7 @@
 
 * `fill(value: T, start=0, end=this.length): this` ✏️ <sup>ES6</sup>
 
-  Assigns `value` to every index.
+    Данный Метод заполняет все элементы массива от начального до конечного значением, переданным в качестве параметра.
 
   ```repl
   > [0, 1, 2].fill('a')
@@ -61,7 +59,7 @@
 
 * `filter(callback: (value: T, index: number, array: Array<T>) => any, thisArg?: any): T[]` 🔒 <sup>ES5</sup>
 
-  Returns an array with only those elements for which `callback` returns `true`.
+    Возвращает массив, который состоит из тех элементов, для которых `callback` вернет `true`
 
   ```repl
   > [1, -2, 3].filter(x => x > 0)
@@ -70,7 +68,7 @@
 
 * `find(predicate: (value: T, index: number, obj: T[]) => boolean, thisArg?: any): T | undefined` 🔒 <sup>ES6</sup>
 
-  The result is the first element for which `predicate` returns `true`. If it never does, the result is `undefined`.
+    Возвращает первое найденное значение, которое удовлетворяет условию, переданному в `callback`, в противном же случае, метод вернет `undefined`
 
   ```repl
   > [1, -2, 3].find(x => x < 0)
@@ -81,7 +79,7 @@
 
 * `findIndex(predicate: (value: T, index: number, obj: T[]) => boolean, thisArg?: any): number` 🔒 <sup>ES6</sup>
 
-  The result is the index of the first element for which `predicate` returns `true`. If it never does, the result is `-1`.
+    Результатом выполнения данного метода будет индекс первго элемента в массива, который удовлетворяет условию в `callback`. Если условие не выполнено, вернется `-1`
 
   ```repl
   > [1, -2, 3].findIndex(x => x < 0)
