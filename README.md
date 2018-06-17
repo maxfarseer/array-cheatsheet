@@ -228,76 +228,65 @@
 
 * `some(callback: (value: T, index: number, array: Array<T>) => boolean, thisArg?: any): boolean` 🔒 <sup>ES5</sup>
 
-  Returns `true` if `callback` returns `true` for at least one element. Stops as soon as it receives `true`. Math: ∃
+    Метод вернет `true` если хотя бы один элемент удовлетворит условию в `callback`. Останавливается, как только возвращается `true`
 
   ```js
-  > [1, 2, 3].some(x => x < 0)
-  false
-  > [1, -2, 3].some(x => x < 0)
-  true
+  [1, 2, 3].some(x => x < 0)    // false
+  [1, -2, 3].some(x => x < 0)   // true
   ```
 
 * `sort(compareFn?: (a: T, b: T) => number): this` ✏️ <sup>ES1</sup>
 
-  Sorts the array and returns `this`. The order in which to sort is specified via `compareFn`, which returns a number that is:
+    Метод сортирует элементы массива и возвращает его.  Порядок сортировки задается с помощью функции сравнения, которая возвращает число:
 
-    * Negative if `a < b` (mnemonic: negative = less than zero)
-    * Zero if `a === b`
-    * Positive if `a > b`
+        * Отрицательное, если `a < b`
+        * Ноль, если `a === b`
+        * Положительное, если`a > b`
+
+    *Примечание: в движке V8, в качестве алгоритма сортировки используется 2 метода. Для больших массивов - быстрая сортировка, для небольших - сортировка вставками*
 
   ```js
-  > [3, 1, 2].sort((a, b) => a - b)
-  [ 1, 2, 3 ]
-  > ['b', 'a', 'c'].sort((a, b) => a < b ? -1 : a > b ? +1 : 0)
-  [ 'a', 'b', 'c' ]
+  [3, 1, 2].sort((a, b) => a - b)                               // [ 1, 2, 3 ]
+  ['b', 'a', 'c'].sort((a, b) => a < b ? -1 : a > b ? +1 : 0)   // [ 'a', 'b', 'c' ]
   ```
 
 * `splice(start: number, deleteCount=this.length-start, ...items: T[]): T[]` ✏️ <sup>ES3</sup>
 
-  At index `start`, it removes `deleteCount` elements and inserts the `items`. It returns the deleted elements.
-
+    Начиная с индекса `start` он удаляет опрпделенное кол-во элементов `deleteCount`, и вставляет `items`. Возвращает измененный исходный массив `array.splice(start, deleteCount,[item1])`
   ```js
-  > const arr = ['a', 'b', 'c', 'd'];
-  > arr.splice(1, 2, 'x', 'y')
-  [ 'b', 'c' ]
-  > arr
-  [ 'a', 'x', 'y', 'd' ]
+  const arr = ['a', 'b', 'c', 'd'];
+  arr.splice(1, 2, 'x', 'y')    // [ 'b', 'c' ]
+  console.log(arr)              // [ 'a', 'x', 'y', 'd' ]
   ```
 
 * `toString(): string` 🔒 <sup>ES1</sup>
 
-  Returns a string with string versions of all elements, separated by commas.
+    Метод возвращает строку, которя включает все элементы массива, разделенные запятой.
 
   ```js
-  > [1, 2, 3].toString()
-  '1,2,3'
-  > ['a', 'b', 'c'].toString()
-  'a,b,c'
-  > [].toString()
-  ''
+  [1, 2, 3].toString()        // '1,2,3'
+  ['a', 'b', 'c'].toString()  // 'a,b,c'
+  [].toString()               //''
   ```
 
 * `unshift(...items: T[]): number` ✏️ <sup>ES3</sup>
-
-  Inserts the `items` at the beginning of this array and returns the length of `this` after the modification.
-
+  
+    Вставляет элемент/элементы в начало массива и возвращает его длинну после каких-либо действий с ним.
   ```js
-  > const arr = ['c', 'd'];
-  > arr.unshift('e', 'f')
-  4
-  > arr
-  [ 'e', 'f', 'c', 'd' ]
+  const arr = ['c', 'd'];
+  arr.unshift('e', 'f')     // 4
+  console.log(arr)          //[ 'e', 'f', 'c', 'd' ]
   ```
 
-## More information
+## Подробная инофрмация
 
-* Array methods of various ECMAScript versions in detail: http://exploringjs.com
-* Holes and array methods: Sect. “[Array operations and holes](http://exploringjs.com/es6/ch_arrays.html#_array-operations-and-holes)” in “Exploring ES6”.
+* Детальное опписание методов для работы с массивами в ECMAScript можно найти тут: http://exploringjs.com
+* Методы работы с массивами в ES6 “[Array operations and holes](http://exploringjs.com/es6/ch_arrays.html#_array-operations-and-holes)”.
 
 <!-- TODO: @@iterable, constructor, .length -->
 
-## Sources
+## Источники
 
 * https://github.com/Microsoft/TypeScript/blob/master/lib/lib.es6.d.ts
-* MDN
-* ECMAScript spec
+* MDN - [Mozilla Development Network](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype)
+* Специализации языка ECMAScript (JavaScript)
