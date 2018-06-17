@@ -13,7 +13,7 @@
     var arr = ['яблоко', 'груша', 'колбаса']
     
     arr.forEach(function(element){
-        element.toUpperCase(); // ['ЯБЛОКО', 'ГРУША', 'КОЛБАСА']
+        console.log(element.toUpperCase()); // ['ЯБЛОКО', 'ГРУША', 'КОЛБАСА']
     })
     ```
     
@@ -21,7 +21,7 @@
     ```js
     const arr = ['рыба', 'овощи', 'молоко']
 
-    arr.forEach(element => element.toUpperCase()) // ['РЫБА', 'ОВОЩИ', 'МОЛОКО']
+    arr.forEach(element => console.log(element.toUpperCase())) // ['РЫБА', 'ОВОЩИ', 'МОЛОКО']
     ```
 
 
