@@ -92,15 +92,13 @@
     Метод вернет `true` или `false`, в зависимости от того содержится ли искомый элемент в массиве или нет. Элементы проверяется через строгое равенство `===`. NaN === NaN
 
   ```js
-  > [0, 1, 2].includes(1)
-  // true
-  > [0, 1, 2].includes(5)
-  // false
+  > [0, 1, 2].includes(1)   // true
+  > [0, 1, 2].includes(5)   // false
   ```
 
 * `indexOf(searchElement: T, fromIndex=0): number` 🔒 <sup>ES5</sup>
 
-  Вернет индекс первого подходящего элемента, равного (строгое равенство) искомому элементы. В противном случае вернет -1. Если указан параметр `fromIndex`, то поиск начинается с него, если не указан, то от начал амассива. `arr.indexOf(searchElement, fromIndex)`
+  Вернет индекс первого подходящего элемента, равного (строгое равенство) искомому элементу. В противном случае вернет `-1`. Если указан параметр `fromIndex`, то поиск начинается с него, если не указан, то от начала массива. `arr.indexOf(searchElement, fromIndex)`
 
   ```js
   > ['a', 'b', 'a'].indexOf('a')    // 0
@@ -111,57 +109,48 @@
 * `join(separator = ','): string` 🔒 <sup>ES1</sup>
 
   Creates a string by concatenating string representations of all elements, separating by `separator`.
+    Данный метод возвращает строку, в которой содержатся все элементы массива, разделенные `separator`. `arr.join(separator)`
 
   ```js
-  > ['a', 'b', 'c'].join()
-  'a,b,c'
-  > ['a', 'b', 'c'].join('##')
-  'a##b##c'
+  > ['a', 'b', 'c'].join()      // 'a,b,c'
+  > ['a', 'b', 'c'].join('##')  // 'a##b##c'
   ```
 
 * `keys(): Iterable<number>` 🔒 <sup>ES6</sup>
 
-  Returns an iterable over the keys of the array.
+    Метод возвращает ключи каждого индекса в массиве
 
   ```js
-  > [...['a', 'b'].keys()]
-  [ 0, 1 ]
+  > [...['a', 'b'].keys()]  // [ 0, 1 ]
   ```
 
 * `lastIndexOf(searchElement: T, fromIndex=this.length-1): number` 🔒 <sup>ES5</sup>
 
-  Returns the index of the last element that is strictly equal to `searchElement`. Returns `-1` if there is no such element. Starts searching at index `fromIndex`, visiting preceding indices next.
+    Вернет индекс последнего подходящего элемента, равного (строгое равенство) искомому элементу. В противном случае вернет `-1`. Если указан параметр `fromIndex`, то поиск начинается с него. `arr.indexOf(searchElement, fromIndex)`
 
   ```js
-  > ['a', 'b', 'a'].lastIndexOf('a')
-  2
-  > ['a', 'b', 'a'].lastIndexOf('a', 1)
-  0
-  > ['a', 'b', 'a'].lastIndexOf('c')
-  -1
+  > ['a', 'b', 'a'].lastIndexOf('a')    // 2
+  > ['a', 'b', 'a'].lastIndexOf('a', 1) // 0
+  > ['a', 'b', 'a'].lastIndexOf('c')    // -1
   ```
 
 * `map<U>(callback: (value: T, index: number, array: ReadonlyArray<T>) => U, thisArg?: any): U[]` 🔒 <sup>ES5</sup>
 
-  Returns a new array, in which every element is the result of `callback` being applied to the corresponding element of `this`.
+    Метод вернет новый массив, в котором к каждому элементу будет применен результат вызова `callback`
 
   ```js
-  > [1, 2, 3].map(x => x * 2)
-  [ 2, 4, 6 ]
-  > ['a', 'b', 'c'].map((x, i) => i)
-  [ 0, 1, 2 ]
+  > [1, 2, 3].map(x => x * 2)        // [ 2, 4, 6 ]
+  > ['a', 'b', 'c'].map((x, i) => i) // [ 0, 1, 2 ]
   ```
 
 * `pop(): T | undefined` ✏️ <sup>ES3</sup>
 
-  Removes and returns the last element of the array. That is, it treats the end of the array as a stack.
+    Удаляет из массива последний элемент, и затем возвращает его. То есть, метод по сути работает как стек(stack - структура данных).
 
   ```js
   > const arr = ['a', 'b', 'c'];
-  > arr.pop()
-  'c'
-  > arr
-  [ 'a', 'b' ]
+  > arr.pop()   // 'c'
+  > arr         // [ 'a', 'b' ]
   ```
 
 * `push(...items: T[]): number` ✏️ <sup>ES3</sup>
